@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+  /* register page */
+
+  .login {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loginwrapper { 
+    width: 70%;
+    height: 70%;
+    display: flex;
+  }
+  
+  .loginleft,
+  .loginright {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .loginlogo {
+    font-size: 50px;
+    font-weight: 800;
+    color: #1775ee;
+    margin-bottom: 10px;
+  }
+  
+  .logindesc {
+    font-size: 24px;
+  }
+  
+  .loginbox{
+      height: 500px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  
+  .logininput{
+      height: 50px;
+      border-radius: 10px;
+      border: 1px solid gray;
+      font-size: 18px;
+      padding-left: 20px;
+  }
+  
+  .logininput:focus{
+      outline: none;
+  }
+  
+  .loginbutton{
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      background-color: #1775ee;
+      color: white;
+      font-size: 20px;
+      font-weight: 500;
+      cursor: pointer;
+  }
+  
+  .loginforgot{
+      text-align: center;
+      color: #1775ee;
+  }
+  
+  .loginregister{
+      width: 60%;
+      align-self: center;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      background-color: #42b72a;
+      color: white;
+      font-size: 20px;
+      font-weight: 500;
+      cursor: pointer;
+  }
+
+  /* taskpage */
+  .bg{
+    background-color:white;
+  }
+  .form{
+    display: flex;
+    justify-content: center;
+    background-color: #d6dee7;
+    padding: 2rem;
+    height: 28rem;
+    width: 29rem;
+    margin: auto;
+    margin-top: 5rem;
+    border-radius: 20px;
+    box-shadow: 0 0 30px  rgb(167, 162, 162);
+    
+  }
+  .form input{
+    border-radius: 7px;
+    border: none;
+    width: 15rem;
+    height: 2rem;
+  }
+  .div{
+    padding-top: 2rem;
+  }
+  .dis{
+    display: flex;
+    align-items: center;
+  }
+  .b{
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    width: 17rem;
+    height: 3rem;
+    padding-top: 14px;
+    boder: non;
+    border: none;
+    background: blue;
+    color: white;
+    font-weight: 900;
+    /* margin-top: 18px; */
+    margin: 36px;
+  }
+
+  /* tablepage */
+
+
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+  }
+
+  th {
+      background-color: #f2f2f2;
+  }
+  .B1{
+    background-color: green;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 10px;
+  }
+  .B2{
+    background-color:red;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 10px;
+  }

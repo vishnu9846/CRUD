@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Table</title>
+    <link rel="stylesheet" href="{% static "input.css" %}">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+      
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+      
+        th {
+            background-color: #f2f2f2;
+        }
+        .B1{
+            background-color:#228B22;
+            width: 6rem;
+            height: 2rem;
+            border-radius: 10px;
+            padding: 8px;
+            font-size: 12px;
+            text-decoration: none;
+            color:white;
+            
+        }
+        .B2{
+            background-color: #8B0000;
+            width: 6rem;
+            height: 2rem;
+            border-radius: 10px;
+            padding: 8px;
+            font-size: 12px;
+            text-decoration: none;
+            color:white;
+        }
+        .B3{
+            background-color: #1E90FF;
+            width: 6rem;
+            height: 2rem;
+            border-radius: 10px;
+            padding: 8px;
+            font-size: 12px;
+            text-decoration: none;
+            color:white;
+        }
+        .B5{
+            background-color:#228B22;
+            width: 6rem;
+            height: 2rem;
+            border-radius: 10px;
+            padding: 8px;
+            font-size: 12px;
+            text-decoration: none;
+            color:white;
+            text-align:center;
+            font-size:20px;
+            padding:5px;
+            
+        }
+    </style>
+</head>
+<body>
+   
+    <div style="display:flex;justify-content:space-between;padding:1rem 1rem 5rem;">
+        <h1>Task Table</h1>
+        {% if user.is_superuser %}
+        <a class="B5"  href="{% url "crud:task"  %}">Add Task</a>
+        {% endif %}
+    </div>
+    
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th>Priority</th>
+                <th>Assignee</th>
+                <th>Completion Status</th>
+                {% if user.is_superuser %}
+                <th></th>
+                <th></th>
+                <th></th>
+                {% endif %}
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks  %}
+            <tr>
+                <td>{{ task.task_name }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.priority }}</td>
+                <td>{{ task.assignee }}</td>
+                <td>{{ task.completion_status }}</td>
+                {% if user.is_superuser %}
+                <td><a class="B1" href="{% url "crud:update" task.pk  %}">UPDATE</a></td>
+                <td><a class="B2" href="{% url "crud:delete" task.pk  %}">DELETE</a></td>
+                {% endif %}
+                <td><a class="B3" href="{% url 'crud:task_complete' task.pk %}">Complete</a> </td>-
+
+            </tr>
+            {% endfor %}
+            {% comment %} <tr>
+                <td>Task 2</td>
+                <td>Description for Task 2</td>
+                <td>Medium</td>
+                <td>User 2</td>
+                <td>Not Completed</td>
+                <td><button class="B1">UPDATE</button></td>
+                <td><button class="B2">DELETE</button></td>
+
+            </tr> {% endcomment %}
+        </tbody>
+    </table>
+</body>
+</html>

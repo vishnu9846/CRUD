@@ -1,0 +1,191 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="{% static "input.css" %}">
+    <style>
+        /* Your custom CSS styles go here */
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #343a40 !important;
+        }
+
+        .login-register-area {
+            margin-top: 50px;
+        }
+
+        .login-register-wrapper {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-register-tab-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .login-register-tab-list a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .login-register-tab-list a.active {
+            border-bottom: 2px solid #333;
+        }
+
+        .login-register-form {
+            margin-top: 20px;
+        }
+
+        .login-register-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-register-form input[type="text"],
+        .login-register-form input[type="password"],
+        .login-register-form input[type="email"] {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .login-register-form .button-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .login-register-form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .login-toggle-btn {
+            display: flex;
+            align-items: center;
+        }
+
+        .login-toggle-btn a {
+            margin-left: 5px;
+            color: #333;
+        }
+        .tab-content{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .f{
+            margin-top:1rem;
+        }
+    </style>
+    
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          {% comment %} <a class="navbar-brand">Navbar</a> {% endcomment %}
+          <form class="d-flex" role="search">
+            
+            
+            <!-- <a class="navbar-brand" href="#">Account</a> -->
+          </form>
+        </div>
+    </nav>
+<br>
+<br>
+      <!-- login area start -->
+      <div class="login-register-area pt-100px pb-100px">
+        <div class="pagination justify-content-center ">
+            <div class="row">
+                <div class=" col-md-12 ml-auto mr-auto">
+                    <div class="login-register-wrapper">
+                        <div class="login-register-tab-list nav gap-3">
+                            <a class="active" data-bs-toggle="tab" href="#lg1" onclick="toggleForm('login')">
+                                <h4 class="btn btn-outline-secondary">Login</h4>
+                            </a>
+                            <a data-bs-toggle="tab" href="#lg2" onclick="toggleForm('register')">
+                                <h4 class="btn btn-outline-secondary">Register</h4>
+                            </a>
+                        </div>
+                        
+                        <div class="tab-content">
+                            <div id="lg1" class="tab-pane active">
+                                <div class="login-form-container">
+                                    <div class="login-register-form">
+                                        <form action="#" method="post">
+                                            {% csrf_token %}
+                                            {{ form.as_p }}
+
+                                            <!-- <input type="text" name="user-name" placeholder="Username" />
+                                            <br>
+                                            <br>
+                                            <input type="password" name="user-password" placeholder="Password" /> -->
+                                            <div class="button-box">
+                                                <div class="login-toggle-btn">
+                                                    <input type="checkbox" />
+                                                    <a class="flote-none" href="javascript:void(0)">Remember me</a>
+                                                    <a href="#">Forgot Password?</a>
+                                                </div>
+                                                <br>
+                                            </div>
+                                            <button class="f" type="submit"><span>Login</span></button>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="lg2" class="tab-pane">
+                                <div class="login-form-container">
+                                    <div class="login-register-form">
+                                        <form action="#" method="post">
+                                            {% csrf_token %}
+                                            {{ user_form.as_p }}
+
+                                            <!-- <input type="text" name="user-name" placeholder="Username" />
+                                            <br>
+                                            <br>
+                                            <input type="password" name="user-password" placeholder="Password" />
+                                            <br>
+                                            <br>
+                                            <input name="user-email" placeholder="Email" type="email" /> -->
+                                            <div class="button-box">
+                                                <br>
+                                                <button type="submit"><span>Register</span></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login area end -->
+   
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

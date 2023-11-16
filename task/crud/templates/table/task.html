@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Task</title>
+    <link rel="stylesheet" href="{% static "input.css" %}">
+    <style>
+        .bg{
+            background-color:white;
+          }
+          .form{
+            display: flex;
+            justify-content: center;
+            background-color: #d6dee7;
+            padding: 2rem;
+            height: 28rem;
+            width: 29rem;
+            margin: auto;
+            margin-top: 5rem;
+            border-radius: 20px;
+            box-shadow: 0 0 30px  rgb(167, 162, 162);
+            
+          }
+          .form input{
+            border-radius: 7px;
+            border: none;
+            width: 15rem;
+            height: 2rem;
+          }
+          .div{
+            padding-top: 2rem;
+          }
+          .dis{
+            display: flex;
+            align-items: center;
+          }
+          .b{
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            width: 17rem;
+            height: 3rem;
+            padding-top: 14px;
+            boder: non;
+            border: none;
+            background: blue;
+            color: white;
+            font-weight: 900;
+            /* margin-top: 18px; */
+            margin: 36px;
+          }
+          .q{
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            width: 17rem;
+            height: 2rem;
+            padding-top: 14px;
+            boder: non;
+            border: none;
+            background: #228B22;
+            color: white;
+            font-weight: 900;
+            /* margin-top: 18px; */
+            margin: 36px;
+            text-decoration: none;
+          } 
+    </style>
+</head>
+<body class="bg">
+    {% comment %} <form  class="form" method="POST">
+        {% csrf_token %}
+
+        <div>
+
+            <h1>Create Task</h1>
+
+            <div>
+                <label for="task_name">Task Name:</label>
+                {{ form.task_name }}
+            </div>
+
+            <div class="div dis">
+                <label for="description">Description:</label>
+                {% comment %} <textarea id="description" name="description" required></textarea>     {% endcomment %}
+                {{ forms.desc }}
+
+            {% comment %} </div>
+            
+
+            <div class="div">
+                <label for="priority">Priority:</label>
+                <select id="priority" name="priority" required>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+
+            <div class="div">
+                <label for="assignee">Assignee:</label>
+                <input type="text" id="assignee" name="assignee" required>
+            </div>
+            
+            <div class="div">
+                <label for="completion_status">Completion Status:</label>
+                <input type="checkbox" id="completion_status" name="completion_status">
+            </div>
+            <button class="b" type="submit">Create Task</button>
+        </div>
+    </form> {% endcomment %}
+    <form class="form" method="POST">
+      {% csrf_token %}
+      <div>
+          <h1>Create Task</h1>
+
+          {% for field in form %}
+              <div class="div">
+                  <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                  {{ field }}
+              </div>
+          {% endfor %}
+          
+            <button class="b" type="submit">Create Task</button>
+            <a class="q"  href="{% url "crud:table"  %}">View Task</a>
+          </div>
+      </div>
+  </form>
+</body>
+</html>
